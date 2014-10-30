@@ -1,38 +1,29 @@
 from django.db import models
 
+
 # Create your models here.
-class Enseignant(models.Model):
+class Teacher(models.Model):
     pass
 
-class Categorie(models.Model):
+
+class Category(models.Model):
     pass
 
-class Session( models.Model):
+
+class Session(models.Model):
     pass
 
-class Langue( models.Model):
+
+class Language(models.Model):
     pass
+
 
 class Course(models.Model):
     # description of one user
     slug = models.SlugField()
-    titre = models.CharField(max_length=50)
+    title = models.CharField(max_length=50)
     definition = models.CharField(max_length=50)
-    langue = models.ForeignKey( Langue )
-    enseignants = models.ManyToManyField( Enseignant )
-    cathegories = models.ForeignKey( Categorie)
+    language = models.ForeignKey(Language)
+    teacher = models.ManyToManyField(Teacher)
+    categories = models.ForeignKey(Category)
     sessions = models.ManyToManyField(Session)
-    
-    #programme = models.
-    
-
-    
-    def __unicode__(self):
-        return self.full_name
-    
-    @property
-    def full_name(self):
-        return u"%s %s" % (self.first_name, self.last_name)
-    
-    
-    
