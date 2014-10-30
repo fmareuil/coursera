@@ -10,11 +10,12 @@ class Teacher(models.Model):
 
 
 class Category(models.Model):
-    pass
+    type = models.CharField(max_length=50)
 
 
 class Session(models.Model):
-    pass
+    first_date = models.DateTimeField()
+    last_date = models.DateTimeField()
 
 
 class Language(models.Model):
