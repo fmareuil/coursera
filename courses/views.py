@@ -5,5 +5,5 @@ from models import Course
 # Create your views here.
 
 class CourseView(DetailView):
-    template_name = "courses.html"
+    template_name = "course.html"
     model = Course

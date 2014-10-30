@@ -7,5 +7,4 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^(?P<slug>[\w-]+)/$',views.CourseView.as_view(), name="course"),
-    url(r'^$',views.CourseView.as_view(), name="course"),
 )
