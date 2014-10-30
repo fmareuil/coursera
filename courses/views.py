@@ -1,7 +1,9 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, DetailView
+from models import Course
 
 # Create your views here.
 
-class CourseView(TemplateView):
+class CourseView(DetailView):
     template_name = "courses.html"
+    model = Course
