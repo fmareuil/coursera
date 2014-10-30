@@ -1,9 +1,12 @@
 from django.db import models
+from django.contrib.auth.models import User
+
 
 
 # Create your models here.
 class Teacher(models.Model):
-    pass
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
 
 
 class Category(models.Model):
@@ -15,7 +18,9 @@ class Session(models.Model):
 
 
 class Language(models.Model):
-    pass
+    teacher = models.ForeignKey(Teacher)
+    name = models.CharField(max_length=50)
+    iso = models.CharField(max_length=2)
 
 
 class Syllabus(models.Model):
@@ -24,6 +29,7 @@ class Syllabus(models.Model):
 
 class Course(models.Model):
     # description of one user
+    user = models.ManyToManyField(User, related_name="courses")
     slug = models.SlugField()
     title = models.CharField(max_length=50)
     definition = models.TextField()
