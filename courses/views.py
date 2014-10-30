@@ -4,6 +4,9 @@ from models import Course
 
 # Create your views here.
 
-class CourseView(DetailView):
+class CourseView(TemplateView):
     template_name = "courses.html"
     model = Course
+    
+
+    
