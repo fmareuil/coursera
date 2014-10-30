@@ -17,10 +17,6 @@ class Session(models.Model):
     pass
 
 
-class Session(models.Model):
-    pass
-
-
 class Language(models.Model):
     teacher = models.ForeignKey(teacher)
     name = models.CharField(max_length=50)
