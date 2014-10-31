@@ -2,6 +2,7 @@ from django.contrib import admin
 from django import forms
 from .models import Course, Teacher
 
+
 # Register your models here.
 class CourseAdminForm(forms.ModelForm):
     class Meta:

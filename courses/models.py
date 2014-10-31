@@ -2,36 +2,34 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-
-# Create your models here.
 class Teacher(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
 
     def __unicode__(self):
         return "%s %s" % (self.first_name, self.last_name)
-    
-    
+
+
 class Category(models.Model):
     type = models.CharField(max_length=50)
-    
+
     def __unicode__(self):
         return self.type
 
 
 class Session(models.Model):
-    first_date = models.DateTimeField()
-    last_date = models.DateTimeField()
+    first_date = models.DateField()
+    last_date = models.DateField()
 
     def __unicode__(self):
-        return "starting date %s ending date %s" % (self.first_date, self.last_date)
-       
-       
+        return "%s - %s" % (self.first_date, self.last_date)
+
+
 class Language(models.Model):
     teacher = models.ForeignKey(Teacher)
     name = models.CharField(max_length=50)
     iso = models.CharField(max_length=2)
- 
+
     def __unicode__(self):
         return self.name
 
@@ -41,8 +39,8 @@ class Syllabus(models.Model):
 
     def __unicode__(self):
         return self.theme
-    
-    
+
+
 class Course(models.Model):
     # description of one user
     user = models.ManyToManyField(User, related_name="courses")
