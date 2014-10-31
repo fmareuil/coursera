@@ -19,4 +19,3 @@ class CoursesView(TemplateView):
         context['courses'] = Course.objects.all()
         # ajout de setting dans la conf generale
         return context
-
