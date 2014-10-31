@@ -128,29 +128,25 @@ window._204.push(
                                     data-popup-item="a"
                                     data-popup-direction="se"
                                     class="coursera-header-link coursera-header-account">About<span>&nbsp;▾</span></a><span
-                                    style="margin:0px -2px 0px 2px;color:#717171;"> |</span><a
+                                    style="margin:0px -2px 0px 2px;color:#717171;"> |</span>
+                                {% if user.is_authenticated %}
+                                <a
+                                    data-js="redirect-link"
+                                    href="{% url 'logout' %}"
+                                    class="coursera-header-link coursera-header-link-special">Sign Out</a>
+                                {% else %}
+                                <a
                                     data-js="redirect-link"
                                     href="{% url 'login' %}"
                                     class="coursera-header-link coursera-header-link-special">Sign
                                 In</a><a data-js="redirect-link"
                                          href="https://accounts.coursera.org/signup"
                                          class="coursera-header-link coursera-header-link-special">Sign
-                                Up</a></div>
+                                Up</a>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
-                    <div id="coursera-header-about-popup"
-                         class="hide coursera-header-popup"><a
-                            data-popup-close="data-popup-close" href="/about/"
-                            class="internal-about">Overview</a><a
-                            data-popup-close="data-popup-close"
-                            href="/about/careers"
-                            class="internal-about">Careers</a><a
-                            data-popup-close="data-popup-close"
-                            href="/about/people"
-                            class="internal-about">People</a><a
-                            data-popup-close="data-popup-close"
-                            href="/about/contact"
-                            class="internal-about">Contact</a></div>
                     <div id="coursera-header-account-popup"
                          class="hide coursera-header-popup"><a
                             data-popup-close="data-popup-close" href="/"
@@ -167,13 +163,27 @@ window._204.push(
                             data-popup-close="data-popup-close"
                             href="/account/logout" class="internal-home">Sign
                         Out</a></div>
+                    <div style="position: absolute; left: 1187.5px; top: 42px; z-index: 10000; display: none;"
+                         id="coursera-header-about-popup"
+                         class="hide coursera-header-popup"><a
+                            data-popup-close="data-popup-close" href="/about/"
+                            class="internal-about">Overview</a><a
+                            data-popup-close="data-popup-close"
+                            href="/about/careers"
+                            class="internal-about">Careers</a><a
+                            data-popup-close="data-popup-close"
+                            href="/about/people"
+                            class="internal-about">People</a><a
+                            data-popup-close="data-popup-close"
+                            href="/about/contact"
+                            class="internal-about">Contact</a></div>
                 </div>
                 <div class="coursera-banner" role="navigation"></div>
                 <div class="coursera-body" role="article">
                     <div class="coursera-front-search-banner">
                         <div>
                             <div class="coursera-front-search-banner-hero-container">
-                                <div style="background-image: url('https://dw0ugk4msqulk.cloudfront.net/pages/home/front/university-banners/curtis.jpg')"
+                                <div style="background-image: url('https://dw0ugk4msqulk.cloudfront.net/pages/home/front/university-banners/unige.jpg')"
                                      class="coursera-hero-banner"></div>
                                 <div class="container coursera-front-search-banner-container">
                                     <div class="coursera-front-search-banner-main-group">
@@ -222,8 +232,8 @@ window._204.push(
                                     </div>
                                 </div>
                                 <div class="coursera-front-unilink"><a
-                                        href="/curtis" class="internal-home">Curtis
-                                    Institute of Music »</a></div>
+                                        href="/unige" class="internal-home">University
+                                    of Geneva »</a></div>
                             </div>
                         </div>
                     </div>
@@ -232,6 +242,30 @@ window._204.push(
                             <div class="coursera-front-courses">
                                 <div>
                                     <div class="coursera-front-course-listing coursera-front-course-soon">
+                                        <div class="coursera-course-card">
+                                            <div class="coursera-course-card-image">
+                                                <a href="https://www.coursera.org/course/forensicaccounting"
+                                                   class="coursera-front-to-course-link internal-home"><img
+                                                        src="https://d15cw65ipctsrr.cloudfront.net/e7/436610352a11e48277ab05289070ba/ForensicAccountingLogo.png"></a>
+                                            </div>
+                                            <div class="coursera-course-card-details">
+                                                <a href="https://www.coursera.org/course/forensicaccounting"
+                                                   class="coursera-front-to-course-link internal-home">
+                                                    <h3 class="coursera-course-card-name">
+                                                        Forensic Accounting and
+                                                        Fraud Examination</h3>
+                                                </a>
+
+                                                <div style="line-height:17px;">
+                                                    <a href="/wvu"
+                                                       class="internal-home"><span
+                                                            class="coursera-course-card-uni">WVU</span></a>
+                                                    • <span
+                                                        class="coursera-course-card-startdate">Nov 3rd</span><br><span
+                                                        class="coursera-course-card-language"></span>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="coursera-course-card">
                                             <div class="coursera-course-card-image">
                                                 <a href="https://www.coursera.org/course/globalhealthintro"
@@ -487,30 +521,6 @@ window._204.push(
                                                     <a href="/london"
                                                        class="internal-home"><span
                                                             class="coursera-course-card-uni">London U</span></a>
-                                                    • <span
-                                                        class="coursera-course-card-startdate">Nov 3rd</span><br><span
-                                                        class="coursera-course-card-language"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="coursera-course-card">
-                                            <div class="coursera-course-card-image">
-                                                <a href="https://www.coursera.org/course/forensicaccounting"
-                                                   class="coursera-front-to-course-link internal-home"><img
-                                                        src="https://d15cw65ipctsrr.cloudfront.net/e7/436610352a11e48277ab05289070ba/ForensicAccountingLogo.png"></a>
-                                            </div>
-                                            <div class="coursera-course-card-details">
-                                                <a href="https://www.coursera.org/course/forensicaccounting"
-                                                   class="coursera-front-to-course-link internal-home">
-                                                    <h3 class="coursera-course-card-name">
-                                                        Forensic Accounting and
-                                                        Fraud Examination</h3>
-                                                </a>
-
-                                                <div style="line-height:17px;">
-                                                    <a href="/wvu"
-                                                       class="internal-home"><span
-                                                            class="coursera-course-card-uni">WVU</span></a>
                                                     • <span
                                                         class="coursera-course-card-startdate">Nov 3rd</span><br><span
                                                         class="coursera-course-card-language"></span>
@@ -780,3 +790,4 @@ window._204.push(
 <div style="display: none;" class="coursera-async-message"></div>
 </body>
 </html>
+
