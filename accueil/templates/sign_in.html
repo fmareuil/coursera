@@ -93,9 +93,10 @@
                             <div class="row">
                                 <div class="span6 auth-border-right">
                                     <div style="padding-top:20px;">
-                                        <form action="javascript:void(0);"
+                                        <form action="{% url 'django.contrib.auth.views.login' %}"
                                               method="POST"
                                               class="coursera-signin-form">
+                                            {% csrf_token %}
                                             <div id="signin-fail" role="alert"
                                                  aria-live="assertive"
                                                  class="control-group hide error">
@@ -114,21 +115,17 @@
                                                 <span class="help-inline">Sorry, but we ran into an error trying to process your request. please try again later or contact <a
                                                         href="mailto:technical@coursera.org">technical@coursera.org</a> for more help.</span>
                                             </div>
-                                            <div class="control-group"><label
-                                                    for="signin-email">Email</label>
-
-                                                <div class="controls"><input
-                                                        title="Your Email Address"
-                                                        id="signin-email"
-                                                        type="text"></div>
+                                            <div class="control-group">
+                                                {{ form.username.label_tag }}
+                                                <div class="controls">
+                                                    {{ form.username }}
+                                                </div>
                                             </div>
-                                            <div class="control-group"><label
-                                                    for="signin-password">Password</label>
-
-                                                <div class="controls"><input
-                                                        title="Your Password"
-                                                        id="signin-password"
-                                                        type="password"></div>
+                                            <div class="control-group">
+                                                {{ form.password.label_tag }}
+                                                <div class="controls">
+                                                    {{ form.password }}
+                                                </div>
                                             </div>
                                             <div>
                                                 <div class="control-group">

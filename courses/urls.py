@@ -6,6 +6,7 @@ urlpatterns = patterns('',
     # url(r'^$', 'core.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-    url(r'^(?P<slug>[\w-]+)/$',views.CourseView.as_view(), name="course"),
-    url(r'^$',views.CoursesView.as_view(), name="courses"),
+    url(r'^(?P<slug>[\w-]+)/$', views.CourseView.as_view(),
+       name="course"),
+    url(r'^$', views.CoursesView.as_view(), name="courses"),
 )
