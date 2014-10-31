@@ -18,6 +18,7 @@ class Category(models.Model):
 
 
 class Session(models.Model):
+    user = models.ManyToManyField(User, related_name="sessions")
     first_date = models.DateField()
     last_date = models.DateField()
 
@@ -42,8 +43,6 @@ class Syllabus(models.Model):
 
 
 class Course(models.Model):
-    # description of one user
-    user = models.ManyToManyField(User, related_name="courses")
     slug = models.SlugField()
     title = models.CharField(max_length=50)
     definition = models.TextField()

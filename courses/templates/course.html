@@ -940,37 +940,29 @@ body.fb_hidden {
 														class="coursera-course-heading">
 														<span>Sessions</span>
 													</h2>
-													<span class="coursera-course-selector-dropdown"><select
+													<form action="{% url 'inscription' object.slug %}" method="POST">
+													{% csrf_token %}
+													
+													<span class="coursera-course-selector-dropdown"><select name="session_id"
 														class="coursera-course-listing-selector">
 														{% for obj in object.sessions.all %}
-														<option data-course-id={{obj.id}}>{{obj}}</option>
+														<option value={{obj.id}}>{{obj}} {% if user in obj.user.all %}Inscripted{%endif%}</option>
 														{% endfor %}
 														</select>
-													<div class="coursera-dropdown-listing-buttons">
+													    <div class="coursera-dropdown-listing-buttons">
 															<div style="display: inline;" data-course-id="972641"
 																class="coursera-course-listing-buttons">
 																<div class="coursera-course-listing-btn">
-																	<a href="javascript:void(0);"
-																		class="btn-flat coursera-course-button btn-flat-primary coursera-course-button-join">Inscrivez-vous
-																		gratuitement</a>
+																    <input type="hidden" name="next" value="{% url 'course' object.slug %}"/>
+																	<input type="submit"
+																		class="btn-flat coursera-course-button btn-flat-primary coursera-course-button-join" value="Inscrivez-vous
+																		gratuitement"/>
 																</div>
 																<div class="coursera-course-listing-btn"></div>
 															</div>
-															<span style="display: none" data-course-id="watchlist"
-																class="coursera-course-listing-buttons"><span
-																class="coursera-course-subscribe"><a
-																	type="button"
-																	class="btn-flat btn-flat-primary coursera-course-button">Ajouter
-																		à la Liste de suivi</a></span><span style="display: none;"
-																class="coursera-course-subscribed"><button
-																		type="button" disabled="disabled"
-																		class="btn-flat btn-flat-success coursera-course-button">Vous
-																		regardez !</button>
-																	<a href="javascript:void(0);"
-																	style="font-size: smaller; margin-left: 10px;"
-																	class="coursera-course-unsubscribe">Supprimer de la
-																		Liste de suivi</a></span></span>
 														</div>
+														</span>
+														</form>
 														<div class="coursera-course2 data eligible-for-list">
 															<h2 style="margin-bottom: 5px"
 																class="coursera-course-heading">Répond aux
