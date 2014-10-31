@@ -7,6 +7,7 @@ urlpatterns = patterns('',
     # url(r'^$', 'core.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
     url(r'^$', views.HomeView.as_view(), name="home"),
-    url(r'^signin$', 'django.contrib.auth.views.login',
+    url(r'^account/signin$', 'django.contrib.auth.views.login',
         {'template_name': 'sign_in.html'}, name="login"),
+    url(r'^account/logout$', 'django.contrib.auth.views.logout', name="logout"),
 )
